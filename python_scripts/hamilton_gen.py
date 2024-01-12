@@ -11,10 +11,10 @@ e_3 = c^{\dagger}_{1,up} c^{\dagger}_{1,dn} |0>
 H = np.empty((4,4),dtype=np.complex128)
 
 t = 1.0
-U = float("Enter the value of U")
+# U = float(input("Enter the value of U"))
+U = float(1)
 
 # define the hamiltonian
-
 H[0,0] = U
 H[0,1] = -t
 H[0,2] = t
@@ -32,5 +32,14 @@ H[3,1] = t
 H[3,2] = t
 H[3,3] = U
 
+print('Hamiltonian constructed\nSites: 2 \nBoundary: periodic\nPauli exclusion: yes\n')
+
 # diagonalize
-eigval, eigvec = np.linalg.eigH(H)
+eigval, eigvec = np.linalg.eigh(H)
+
+# display eigenvalues
+"Here are the eigenvalues associated with the system: \n\n "
+for i in range(4):
+	print(f'eigenvalue {i+1}: {round(eigval[i])}')
+
+
