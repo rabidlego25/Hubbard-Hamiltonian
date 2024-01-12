@@ -42,4 +42,30 @@ eigval, eigvec = np.linalg.eigh(H)
 for i in range(4):
 	print(f'eigenvalue {i+1}: {round(eigval[i])}')
 
+# lowest energy eigenstates of the hamiltonian
+for i in range(4):
+	print(f'eigenstate {i+1}: {round(eigvec[i,0].real,3)}+{eigvec[i,0].imag}j')
 
+# defining the square modulus
+def sqmod(z):
+	a = np.real(z)
+	b = np.imag(z)
+	return a**2 + b**2
+
+print('probability to observe up/dn empty  {} \n'.format(sqmod(eigvec[0,0])))
+print('probability to observe up    dn     {} \n'.format(sqmod(eigvec[1,0])))
+print('probability to observe dn    up     {} \n'.format(sqmod(eigvec[2,0])))
+print('probability to observe empty up/dn  {} \n\n'.format(sqmod(eigvec[3,0])))
+
+
+# display eigenvectors
+print('Eigenvectors of H \n')
+for n in range(4):
+	print(f'|psi_{n}> = \n')
+	for i in range(4):
+		re = np.real(eigvec[i,n])
+		im = np.imag(eigvec[i,n])
+		print(f'+( {round(re,3)}, {im} ) e_{i}')
+	print("\n\n")
+
+# time-dependent Schroedinger equation \n\n
