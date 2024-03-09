@@ -19,7 +19,7 @@ def get_user_input():
 	flavors = int(input("Number of flavors?\n"))
 
 	# Size of the lattice
-	d_array = np.zeros(dimensionality, dtype=int)
+	d_array = np.empty(dimensionality, dtype=np.int64)
 	for i in range(dimensionality):
 		d_array[i] = int(input(f"Please enter points in the {i} direction:\n"))	
 
