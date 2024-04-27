@@ -14,8 +14,8 @@ for d in range(dimension):
 """
 
 # template
-d_array[0] = 6
-d_array[1] = 4
+d_array[0] = 2
+d_array[1] = 2
 #d_array[2] = 2
 
 L = np.prod(d_array)
@@ -27,9 +27,9 @@ ibc = 0
 # N = int(input("number of flavors = ? \n"))
 N = 3
 Npart = np.empty(N,dtype=np.int64)
-Npart[0] = 5
-Npart[1] = 5
-Npart[2] = 5
+Npart[0] = 1
+Npart[1] = 0
+Npart[2] = 1
 
 M = N*L
 print("The dimension of the single particle Hilbert space is {} \n\n".format(M))
@@ -140,7 +140,7 @@ myfile.close()
 print(eigenvectors)
 myfile = open("1B_Eigenvectors.info","w")
 for i in range(L):
-	myfile.write(f"{i} {eigenvectors[i]}\n\n")
+	myfile.write(f"{i} {eigenvectors[:,i]}\n\n")
 myfile.close()
 
 #build the wave functions for the different Flavors
